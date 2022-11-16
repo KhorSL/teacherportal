@@ -1,0 +1,3 @@
+DROP TABLE IF EXISTS register;
+DROP TABLE IF EXISTS student;
+DROP TABLE IF EXISTS teacher;
