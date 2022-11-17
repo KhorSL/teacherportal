@@ -93,7 +93,7 @@ create database teacherportal;
 
 ### Using BigInt for ID
 
-Although student can be uniquely identified with email addresses. Used BigInt, as it would probably be easier to use integer ID for production support and logging of email might have to be masked.
+Although student can be uniquely identified with email addresses, but used BigInt as it would probably be easier to use integer ID for production support and logging of email might have to be masked.
 
 ### Audit fields
 
@@ -105,14 +105,19 @@ Some assumptions when developing the stories.
 
 ### Story 4
 
-Notification inputs with no spaces between 'mentions' will not be recognised. As from example below:
-User input might have typo
-e.g. trying to mention '@john' and '@gmail.com@gmail.com'.
-While @john is not valid, but it is beside a mentioned with '@gmail.com' could not really tell if it is suppose to be '@john@gmail.com' and '@gmail.com'
+User will input a space between each 'mentions'
+```
+@john@gmail.com @jane@gmail.com
+```
 
+This assumption was made as there are scenarios where the system would not be able to correctly identify the student email, if there are no space between the 'mentions'.
+
+Example
 ```
 @john@gmail.com@gmail.com
 ```
+As per above example, the user intended to input "@john @gmail.com@gmail.com", but has omitted the space between "@john" and "@gmail.com@gmail.com". System will not be able to determine this scenario as it could have different permutation such as: "@john@gmail.com" & "@gmail.com".
+
 
 ## Challenges/Limitations
 
